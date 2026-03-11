@@ -42,17 +42,23 @@ Interface de usuário onde é possível filtrar dados de forma inteligente:
 
 ## 🛠️ Fundamentação Matemática
 
-Para o cálculo de distância entre dois pontos ($P_1$ e $P_2$) na superfície da Terra, utilizamos a formulação de Haversine:
+Para o cálculo de distância entre dois pontos na superfície esférica da Terra, o sistema utiliza a **Fórmula de Haversine**. Esta abordagem é superior à distância euclidiana simples pois considera a curvatura do planeta.
 
 $$a = \sin^2\left(\frac{\Delta\phi}{2}\right) + \cos(\phi_1) \cdot \cos(\phi_2) \cdot \sin^2\left(\frac{\Delta\lambda}{2}\right)$$
-$$c = 2 \cdot \operatorname{atan2}(\sqrt{a}, \sqrt{1-a})$$
-$$d = R \cdot c$$
 
 Onde:
 * $\phi$ = Latitude (em radianos)
 * $\lambda$ = Longitude (em radianos)
-* $R$ = Raio da Terra (6.371 km)
 
+**Lógica de Cálculo:**
+- Passo 1: Cálculo do Haversine de latitude e longitude.
+- Passo 2: Aplicação da função arco tangente de dois parâmetros (atan2).
+- Passo 3: Multiplicação pelo Raio Médio da Terra (6.371 km).
+
+**Parâmetros Utilizados:**
+* Variáveis de Latitude e Longitude convertidas em Radianos.
+* Constante do Raio da Terra: 6371.
+* Resultado final padronizado em Quilômetros (km).
 ---
 
 ## 🛡️ Disclaimer e Privacidade (Dados Anonimizados)
